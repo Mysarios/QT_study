@@ -23,6 +23,8 @@ SOURCES += \
     3_Lesson/question_3_4.cpp \
     3_Lesson/question_3_5.cpp \
     4_Lesson/question_4_1.cpp \
+    4_Lesson/question_4_2.cpp \
+    4_Lesson/question_4_3.cpp \
     lesson_1.cpp \
     lesson_2.cpp \
     lesson_3.cpp \
@@ -45,6 +47,8 @@ HEADERS += \
     3_Lesson/question_3_4.h \
     3_Lesson/question_3_5.h \
     4_Lesson/question_4_1.h \
+    4_Lesson/question_4_2.h \
+    4_Lesson/question_4_3.h \
     lesson_1.h \
     lesson_2.h \
     lesson_3.h \
@@ -66,6 +70,8 @@ FORMS += \
     3_Lesson/question_3_4.ui \
     3_Lesson/question_3_5.ui \
     4_Lesson/question_4_1.ui \
+    4_Lesson/question_4_2.ui \
+    4_Lesson/question_4_3.ui \
     lesson_1.ui \
     lesson_2.ui \
     lesson_3.ui \

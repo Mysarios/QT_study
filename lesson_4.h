@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <4_Lesson/question_4_1.h>
+#include <4_Lesson/question_4_2.h>
 
 namespace Ui {
 class Lesson_4;
@@ -19,6 +20,8 @@ public:
 private slots:
     void on_Open_1_Question_clicked();
     void Change_Window();
+
+    void on_Open_2_Question_clicked();
 
 private:
     Ui::Lesson_4 *ui;

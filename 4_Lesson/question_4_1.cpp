@@ -34,12 +34,9 @@ QVector<int> Sort_Array(QVector<int> VectorArr)
             Vector_buf_Right.push_back(VectorArr[i+int(Lenght_Max/2)]);
         }
 
-        if(Lenght_Max % 1 == 1){
+        if(Lenght_Max % 2 == 1){
             Vector_buf_Right.push_back(VectorArr[Lenght_Max-1]);
         }
-
-        //std::cout<< Vector_buf_Left.length()<<std::endl;
-        //std::cout<< Vector_buf_Right.length()<<std::endl;
 
         QVector<int> Vector_buf = Vector_buf_Left;
         Vector_buf_Left.clear();
@@ -60,9 +57,6 @@ QVector<int> Sort_Array(QVector<int> VectorArr)
         }
 
     }
-
-
-
     if(Lenght_Max == 2){
         QVector<int> Buf = VectorArr;
         VectorArr.clear();
@@ -75,19 +69,22 @@ QVector<int> Sort_Array(QVector<int> VectorArr)
         }
         return VectorArr;
     }
-
-
+    if(Lenght_Max == 1){
+        return VectorArr;
+    }
 
     int index_1 = 0;
     int index_2 = 0;
     VectorArr.clear();
 
+    std::cout<<"Left lenght"<<std::endl;
     std::cout<<Vector_buf_Left.length()<<std::endl;
-    std::cout<<Vector_buf_Left.length()<<std::endl;
+    std::cout<<"Right lenght"<<std::endl;
+    std::cout<<Vector_buf_Right.length()<<std::endl;
 
     for( int i = 0;i<Lenght_Max;i++){
-        std::cout<<index_1<<std::endl;
-        std::cout<<index_2<<std::endl;
+        //std::cout<<index_1<<std::endl;
+        //std::cout<<index_2<<std::endl;
         if(index_1 == Vector_buf_Left.length() ){
             VectorArr.push_back(Vector_buf_Right[index_2]);
             index_2++;
@@ -113,11 +110,13 @@ void Question_4_1::on_pushButton_clicked()
 {
     SortedVector.push_back(ui->lineEdit->text().toInt());
     ui->label->setText(ui->label->text() +" "+ QString::number(ui->lineEdit->text().toInt()));
+    ui->lineEdit->setText("");
 }
 
 
 void Question_4_1::on_pushButton_2_clicked()
 {
+    QVector<int> Glob_buf = SortedVector;
     SortedVector = Sort_Array(SortedVector);
 
     QVector<int> Vector_buf;
@@ -126,6 +125,8 @@ void Question_4_1::on_pushButton_2_clicked()
     for(int i = 0;i < SortedVector.length();i++){
            Text +=" "+ QString::number(SortedVector[i]);
     }
+    SortedVector.clear();
+    SortedVector = Glob_buf;
     ui->label_2->setText(Text);
 }
 
@@ -146,5 +147,13 @@ void Question_4_1::on_pushButton_3_clicked()
     ui->label->setText(Text);
 
 
+}
+
+
+void Question_4_1::on_Clear_clicked()
+{
+    ui->label->setText("");
+    ui->label_2->setText("");
+    SortedVector.clear();
 }
 

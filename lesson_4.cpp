@@ -26,3 +26,13 @@ void Lesson_4::Change_Window(){
     New_Window->show();
 }
 
+
+void Lesson_4::on_Open_2_Question_clicked()
+{
+    if(New_Window != nullptr){
+        New_Window->deleteLater();
+    }
+    New_Window = new Question_4_2();
+    this->Change_Window();
+}
+
