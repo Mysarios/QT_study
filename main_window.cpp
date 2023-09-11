@@ -61,3 +61,13 @@ void Main_Window::on_pushButton_2_clicked()
     this->Change_Window();
 }
 
+
+void Main_Window::on_Open_Lesson_3_clicked()
+{
+    if(New_Window != nullptr){
+        New_Window->deleteLater();
+    }
+    New_Window = new lesson_5();
+    this->Change_Window();
+}
+

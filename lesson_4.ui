@@ -62,13 +62,6 @@
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="text">
-         <string>5 Question</string>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
     <item>

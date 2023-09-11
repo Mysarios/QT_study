@@ -6,6 +6,7 @@
 #include <lesson_2.h>
 #include <lesson_3.h>
 #include <lesson_4.h>
+#include <lesson_5.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Main_Window; }
@@ -28,6 +29,8 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
+
+    void on_Open_Lesson_3_clicked();
 
 private:
     Ui::Main_Window *ui;

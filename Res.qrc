@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>5_Lesson/Card.qml</file>
+    </qresource>
+</RCC>

@@ -36,3 +36,23 @@ void Lesson_4::on_Open_2_Question_clicked()
     this->Change_Window();
 }
 
+
+void Lesson_4::on_Open_3_Question_clicked()
+{
+    if(New_Window != nullptr){
+            New_Window->deleteLater();
+    }
+    New_Window = new Question_4_3();
+    this->Change_Window();
+}
+
+
+void Lesson_4::on_Open_4_Question_clicked()
+{
+    if(New_Window != nullptr){
+            New_Window->deleteLater();
+    }
+    New_Window = new Question_4_4();
+    this->Change_Window();
+}
+

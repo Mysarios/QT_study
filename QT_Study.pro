@@ -1,4 +1,8 @@
 QT       += core gui
+QT       += qml
+QT       += quick
+QT       += quickcontrols2
+QT       += quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,10 +29,14 @@ SOURCES += \
     4_Lesson/question_4_1.cpp \
     4_Lesson/question_4_2.cpp \
     4_Lesson/question_4_3.cpp \
+    4_Lesson/question_4_4.cpp \
+    5_Lesson/cardcreator.cpp \
+    5_Lesson/question_5_1.cpp \
     lesson_1.cpp \
     lesson_2.cpp \
     lesson_3.cpp \
     lesson_4.cpp \
+    lesson_5.cpp \
     main.cpp \
     main_window.cpp
 
@@ -49,10 +57,14 @@ HEADERS += \
     4_Lesson/question_4_1.h \
     4_Lesson/question_4_2.h \
     4_Lesson/question_4_3.h \
+    4_Lesson/question_4_4.h \
+    5_Lesson/cardcreator.h \
+    5_Lesson/question_5_1.h \
     lesson_1.h \
     lesson_2.h \
     lesson_3.h \
     lesson_4.h \
+    lesson_5.h \
     main_window.h
 
 FORMS += \
@@ -72,10 +84,13 @@ FORMS += \
     4_Lesson/question_4_1.ui \
     4_Lesson/question_4_2.ui \
     4_Lesson/question_4_3.ui \
+    4_Lesson/question_4_4.ui \
+    5_Lesson/question_5_1.ui \
     lesson_1.ui \
     lesson_2.ui \
     lesson_3.ui \
     lesson_4.ui \
+    lesson_5.ui \
     main_window.ui
 
 # Default rules for deployment.
@@ -84,4 +99,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    3_Lesson/Pictures.qrc
+    3_Lesson/Pictures.qrc \
+    Res.qrc
+
+DISTFILES += \
+    5_Lesson/lesson_5_1_QtQuick.qml
