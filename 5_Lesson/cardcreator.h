@@ -9,12 +9,12 @@
 class CardCreator : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString FName READ getFName WRITE setFName NOTIFY FNameChanged)
-    Q_PROPERTY(QString SName READ getSName WRITE setSName NOTIFY SNameChanged)
-    Q_PROPERTY(QString Phone READ getPhone WRITE setPhone NOTIFY PhoneChanged)
-    Q_PROPERTY(QString Address READ getAddress WRITE setAddress NOTIFY AddressChanged)
-    Q_PROPERTY(QString SiteName READ getSiteName WRITE setSiteName NOTIFY SiteNameChanged)
-    Q_PROPERTY(QString Email READ getEmail WRITE setEmail NOTIFY EmailChanged)
+    Q_PROPERTY(QString _FName READ getFName WRITE setFName NOTIFY FNameChanged)
+    Q_PROPERTY(QString _SName READ getSName WRITE setSName NOTIFY SNameChanged)
+    Q_PROPERTY(QString _Phone READ getPhone WRITE setPhone NOTIFY PhoneChanged)
+    Q_PROPERTY(QString _Address READ getAddress WRITE setAddress NOTIFY AddressChanged)
+    Q_PROPERTY(QString _SiteName READ getSiteName WRITE setSiteName NOTIFY SiteNameChanged)
+    Q_PROPERTY(QString _Email READ getEmail WRITE setEmail NOTIFY EmailChanged)
 public:
     explicit CardCreator(QObject *parent = nullptr);
     CardCreator(QString Fname,QString SName,QString PhoneNumber,QString emal,QString site,QString Addres);
