@@ -28,6 +28,8 @@ public:
         int body_id;
         int bode_direction;
         int body_type;
+        int x;
+        int y;
         Body_part* next;
         Body_part* down;
         Body_part(Body_part* last){

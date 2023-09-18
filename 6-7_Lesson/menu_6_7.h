@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "json_data.h"
 #include <6-7_Lesson/settings.h>
+#include <6-7_Lesson/main_game.h>
 
 namespace Ui {
 class Menu_6_7;
@@ -17,6 +18,7 @@ public:
     explicit Menu_6_7(QWidget *parent = nullptr);
     ~Menu_6_7();
 
+
 private slots:
     void on_Exit_1_clicked();
     void on_Exit_2_clicked();
@@ -28,9 +30,9 @@ private slots:
 
 private:
     Ui::Menu_6_7 *ui;
+    Settings *Settings_Window;
     Json_Data Data;
     Json_Data::Settings_data Setting;
-    Settings *Settings_Window;
 
 };
 

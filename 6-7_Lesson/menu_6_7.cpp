@@ -50,6 +50,9 @@ void Menu_6_7::on_New_game_clicked()
 {
     Data.Set_Settings(&Setting);
     Data.Write_Json();
+    Main_game* Main_Window_snake = new Main_game();
+    Main_Window_snake->Setting = Setting;
+    Main_Window_snake->show();
 }
 
 
