@@ -32,11 +32,17 @@ SOURCES += \
     4_Lesson/question_4_4.cpp \
     5_Lesson/cardcreator.cpp \
     5_Lesson/question_5_1.cpp \
+    6-7_Lesson/json_data.cpp \
+    6-7_Lesson/main_game.cpp \
+    6-7_Lesson/menu_6_7.cpp \
+    6-7_Lesson/settings.cpp \
+    6-7_Lesson/table.cpp \
     lesson_1.cpp \
     lesson_2.cpp \
     lesson_3.cpp \
     lesson_4.cpp \
     lesson_5.cpp \
+    lesson_6.cpp \
     main.cpp \
     main_window.cpp
 
@@ -60,11 +66,17 @@ HEADERS += \
     4_Lesson/question_4_4.h \
     5_Lesson/cardcreator.h \
     5_Lesson/question_5_1.h \
+    6-7_Lesson/json_data.h \
+    6-7_Lesson/main_game.h \
+    6-7_Lesson/menu_6_7.h \
+    6-7_Lesson/settings.h \
+    6-7_Lesson/table.h \
     lesson_1.h \
     lesson_2.h \
     lesson_3.h \
     lesson_4.h \
     lesson_5.h \
+    lesson_6.h \
     main_window.h
 
 FORMS += \
@@ -86,11 +98,16 @@ FORMS += \
     4_Lesson/question_4_3.ui \
     4_Lesson/question_4_4.ui \
     5_Lesson/question_5_1.ui \
+    6-7_Lesson/main_game.ui \
+    6-7_Lesson/menu_6_7.ui \
+    6-7_Lesson/settings.ui \
+    6-7_Lesson/table.ui \
     lesson_1.ui \
     lesson_2.ui \
     lesson_3.ui \
     lesson_4.ui \
     lesson_5.ui \
+    lesson_6.ui \
     main_window.ui
 
 # Default rules for deployment.
@@ -100,7 +117,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     3_Lesson/Pictures.qrc \
-    Res.qrc
+    Res.qrc \
+    Snake.qrc
 
 DISTFILES += \
-    5_Lesson/lesson_5_1_QtQuick.qml
+    5_Lesson/lesson_5_1_QtQuick.qml \
+    6-7_Lesson/Data_hold/Json_data.json

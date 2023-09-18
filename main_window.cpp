@@ -71,3 +71,13 @@ void Main_Window::on_Open_Lesson_3_clicked()
     this->Change_Window();
 }
 
+
+void Main_Window::on_Open_Lesson_4_clicked()
+{
+    if(New_Window != nullptr){
+        New_Window->deleteLater();
+    }
+    New_Window = new Lesson_6();
+    this->Change_Window();
+}
+

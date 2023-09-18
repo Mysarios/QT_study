@@ -17,10 +17,13 @@ question_5_1::question_5_1(QWidget *parent) :
     ui->CentralWidget->setLayout(box);
 
     QVector<CardCreator*> Cards;
-    CardCreator* buf = new CardCreator("Dima","Mel","+79145553535","Yeap@mail/ru","www.Da.net","Line 5 Already done");
+    CardCreator* buf = new CardCreator("Dima","Melnichenko","+79145553535","Yeap@mail/ru","www.Da.net","Line 5 Already done");
+    Cards.push_back(buf);
+    buf = new CardCreator("Valera","Kyrtigin","+79146667788","Nope@mail/ru","www.Maybe.net","Line 6 Already sad");
     Cards.push_back(buf);
 
     box->addWidget(CreateQMLFromCard(Cards[0]),0);
+    //box->addWidget(CreateQMLFromCard(Cards[1]),0);
 }
 
 question_5_1::~question_5_1()
