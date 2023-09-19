@@ -1,9 +1,9 @@
 {
     "Settings": {
-        "Dificult": "Hard",
-        "High_field": "350",
-        "Name": "555",
+        "Dificult": "Normal",
+        "High_field": "200",
+        "Name": "Anonim",
         "Widght_field": "200",
-        "interval": "5"
+        "interval": "300"
     }
 }

@@ -22,8 +22,8 @@ question_5_1::question_5_1(QWidget *parent) :
     buf = new CardCreator("Valera","Kyrtigin","+79146667788","Nope@mail/ru","www.Maybe.net","Line 6 Already sad");
     Cards.push_back(buf);
 
-    box->addWidget(CreateQMLFromCard(Cards[0]),0);
-    //box->addWidget(CreateQMLFromCard(Cards[1]),0);
+    //box->addWidget(CreateQMLFromCard(Cards[0]),0);
+    box->addWidget(CreateQMLFromCard(Cards[1]),0);
 }
 
 question_5_1::~question_5_1()

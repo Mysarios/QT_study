@@ -39,13 +39,16 @@ public:
           next = last;
           down = nullptr;
         }
-        Body_part(){}
-        void update(){}
+        Body_part(){}  
     };
     bool Read_Json();
     bool Write_Json();
     void Set_Settings(Settings_data*);
+
 signals:
+
+public slots:
+    void update_part(Body_part);
 private:
     QString File_data = "F:/My Files/Git Files/QT_study/6-7_Lesson/Data_hold/Json_data.json";
     Settings_data* Settings;

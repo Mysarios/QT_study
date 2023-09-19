@@ -96,19 +96,6 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="Exit_2">
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>0</y>
-     <width>51</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>X</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="Settings">
    <property name="geometry">
     <rect>
@@ -127,7 +114,6 @@
   <zorder>Load_game</zorder>
   <zorder>Show_table</zorder>
   <zorder>Exit_1</zorder>
-  <zorder>Exit_2</zorder>
   <zorder>Settings</zorder>
  </widget>
  <resources/>

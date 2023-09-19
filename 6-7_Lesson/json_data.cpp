@@ -39,6 +39,7 @@ struct Body_part{
     Body_part* next;
     Body_part* down;
     Body_part(Body_part* last){
+      qDebug()<<"Last= "<<last->x;
       body_id =  last->body_id+1;
       bode_direction = last->bode_direction;
       body_type = last->body_type;
@@ -48,16 +49,19 @@ struct Body_part{
       down = nullptr;
     }
     Body_part(){};
-    void update(){
-       bode_direction = next->bode_direction;
-       body_type = next->body_type;
-       x = next->x;
-       y = next->y;
-    }
 };
 
 bool Json_Data::Read_Json(){
 
+}
+void Json_Data::update_part(Body_part part){
+   part.bode_direction = part.next->bode_direction;
+   part.body_type = part.next->body_type;
+   part.x = part.next->x;
+   part.y = part.next->y;
+   qDebug()<<part.x;
+   qDebug()<<part.y;
+   return;
 }
 bool Json_Data::Write_Json(){
 

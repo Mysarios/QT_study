@@ -6,6 +6,7 @@ Settings::Settings(QWidget *parent) :
     ui(new Ui::Settings)
 {
     ui->setupUi(this);
+    ui->Name->setText("Anonim");
 }
 
 Settings::~Settings()
@@ -16,7 +17,8 @@ Settings::~Settings()
 
 void Settings::on_Cancel_clicked()
 {
-
+    emit on_Accept_clicked();
+    this->close();
 }
 QString Settings::Get_Dificult(){
     QString buf = "none";
@@ -34,13 +36,13 @@ QString Settings::Get_Dificult(){
 int Settings::Get_Speed(){
     int buf = 0;
     if(ui->S_1->isChecked()){
-        buf= 1;
+        buf= 100;
     }
     if(ui->S_3->isChecked()){
-        buf= 3;
+        buf= 300;
     }
     if(ui->S_5->isChecked()){
-        buf= 5;
+        buf= 500;
     }
     return buf;
 }
@@ -48,7 +50,12 @@ int Settings::Get_Speed(){
 
 void Settings::on_Accept_clicked()
 {
-   Data->Game_name = ui->Name->text();
+   if(ui->Name->text() == ""){
+       Data->Game_name = "Anonim+";
+   }else{
+       Data->Game_name = ui->Name->text();
+   }
+
    Data->Dificult = Get_Dificult();
    Data->interval = Get_Speed();
    Data->Widght_field = ui->W_size->value();

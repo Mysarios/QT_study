@@ -13,6 +13,7 @@ Menu_6_7::Menu_6_7(QWidget *parent) :
     Setting = Json_Data::Settings_data("Dima","normal",30,200,200);
     Data.Set_Settings(&Setting);
     Data.Write_Json();
+
 }
 
 Menu_6_7::~Menu_6_7()
@@ -48,11 +49,12 @@ void Menu_6_7::on_Load_game_clicked()
 
 void Menu_6_7::on_New_game_clicked()
 {
+
+    Main_game* Main_Window_snake = new Main_game(Setting);
+    //Main_Window_snake->Setting = Setting;
+    Main_Window_snake->show();
     Data.Set_Settings(&Setting);
     Data.Write_Json();
-    Main_game* Main_Window_snake = new Main_game();
-    Main_Window_snake->Setting = Setting;
-    Main_Window_snake->show();
 }
 
 
