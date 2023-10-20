@@ -3,6 +3,16 @@
 
 #include <QObject>
 #include <QVector>
+#include <QDebug>
+
+struct Fruit{
+    int x;
+    int y;
+};
+struct Name_Score{
+    QString name;
+    int score;
+};
 
 class Json_Data : public QObject
 {
@@ -21,6 +31,7 @@ public:
             interval = interv;
             Widght_field = w;
             High_field = h;
+            qDebug()<<"Create = "<<G_N;
         }
         Settings_data(){}
     };
@@ -41,9 +52,15 @@ public:
         }
         Body_part(){}  
     };
-    bool Read_Json();
+    bool Read_Json(QJsonObject&);
     bool Write_Json();
+    bool Parse_to_NameAndScore(QJsonObject,QVector<Name_Score>&);
+    int Parse_by_GameName(QJsonObject Get_Data,Settings_data&, QVector<Body_part>&, QVector<Fruit>&,int&,QString name);
     void Set_Settings(Settings_data*);
+    void Set_Body(QVector<Body_part>);
+    void Set_Fruits(QVector<Fruit>);
+    void Set_Score(int);
+    void Set_FirstDirection(int);
 
 signals:
 
@@ -52,6 +69,10 @@ public slots:
 private:
     QString File_data = "F:/My Files/Git Files/QT_study/6-7_Lesson/Data_hold/Json_data.json";
     Settings_data* Settings;
+    QVector<Body_part> Body_parts;
+    QVector<Fruit> fruits;
+    int Score;
+    int direction;
 };
 
 #endif // JSON_DATA_H

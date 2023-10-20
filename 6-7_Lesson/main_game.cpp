@@ -4,6 +4,40 @@
 #include <iostream>
 #include <QtDebug>
 
+
+Main_game:: Main_game(Json_Data::Settings_data setting,QVector<Fruit> Get_fruits,QVector<Json_Data::Body_part> Get_body,QWidget *parent):
+    QDialog(parent),
+    ui(new Ui::Main_game),
+    qtimer(new QTimer())
+{
+    ui->setupUi(this);
+    Setting =setting;
+    this->fruits = Get_fruits;
+    this->body = Get_body;
+
+    ui->pushButton->setVisible(0);
+    ui->pushButton->setGeometry(0,0,Setting.Widght_field,Setting.High_field);
+
+    int x_middle = Setting.Widght_field/2;
+    int y_middle = Setting.High_field/2;
+    ui->pushButton_2->setVisible(0);
+    ui->pushButton_2->setGeometry(x_middle - 50,y_middle - 40,100,80);
+
+    qDebug()<<Setting.Widght_field;
+    qDebug()<<Setting.High_field;
+
+    this->setFixedSize(Setting.Widght_field,Setting.High_field);
+
+    qtimer->setInterval(Setting.interval);
+
+
+    connect(qtimer,&QTimer::timeout,this,&Main_game::GameLoop);
+    connect(this,&Main_game::New_iter,this,&Main_game::Update_position);
+    connect(this,&Main_game::New_iter,this,&Main_game::Next_step_head);
+    connect(this,&Main_game::New_iter,this,&Main_game::Redraw);
+    qtimer->start();
+}
+
 Main_game::Main_game(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Main_game),
@@ -17,33 +51,40 @@ Main_game::Main_game(QWidget *parent) :
   buf.down = nullptr;
   buf.next = nullptr;
   body.push_back(buf);
+
   qDebug()<<Setting.Widght_field;
   qDebug()<<Setting.High_field;
+
   this->setFixedSize(Setting.Widght_field,Setting.High_field);
-  //this->setBaseSize(Setting.Widght_field,Setting.High_field);
   body[0].x = Setting.Widght_field/2;
   body[0].y = Setting.High_field/2;
 
 
   qtimer->setInterval(1000);
   connect(qtimer,&QTimer::timeout,this,&Main_game::GameLoop);
-  qtimer->start();
+
   connect(this,&Main_game::New_iter,this,&Main_game::Next_step_head);
   connect(this,&Main_game::New_iter,this,&Main_game::Update_position);
   connect(this,&Main_game::New_iter,this,&Main_game::Create_fruit);
   connect(this,&Main_game::New_iter,this,&Main_game::Redraw);
+  qtimer->start();
 }
 
-Main_game::Main_game(Json_Data::Settings_data Sett,QWidget *parent) :
+Main_game::Main_game(Json_Data::Settings_data setting,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Main_game),
     qtimer(new QTimer())
 {
   ui->setupUi(this);
-  Setting =Sett;
-  qDebug()<<"My_onst";
+  Setting =setting;
+
   ui->pushButton->setVisible(0);
   ui->pushButton->setGeometry(0,0,Setting.Widght_field,Setting.High_field);
+
+  int x_middle = Setting.Widght_field/2;
+  int y_middle = Setting.High_field/2;
+  ui->pushButton_2->setVisible(0);
+  ui->pushButton_2->setGeometry(x_middle - 50,y_middle - 40,100,80);
 
   Json_Data::Body_part buf;
   buf.body_id = 0;
@@ -52,8 +93,10 @@ Main_game::Main_game(Json_Data::Settings_data Sett,QWidget *parent) :
   buf.down = nullptr;
   buf.next = nullptr;
   body.push_back(buf);
+
   qDebug()<<Setting.Widght_field;
   qDebug()<<Setting.High_field;
+
   this->setFixedSize(Setting.Widght_field,Setting.High_field);
   body[0].x = Setting.Widght_field/2;
   body[0].y = Setting.High_field/2;
@@ -74,11 +117,11 @@ Main_game::Main_game(Json_Data::Settings_data Sett,QWidget *parent) :
 
   qtimer->setInterval(Setting.interval);
   connect(qtimer,&QTimer::timeout,this,&Main_game::GameLoop);
-  qtimer->start();
   connect(this,&Main_game::New_iter,this,&Main_game::Update_position);
   connect(this,&Main_game::New_iter,this,&Main_game::Next_step_head);
   //connect(this,&Main_game::New_iter,this,&Main_game::Create_fruit);
   connect(this,&Main_game::New_iter,this,&Main_game::Redraw);
+  qtimer->start();
 }
 
 Main_game::~Main_game()
@@ -95,22 +138,24 @@ void Main_game::Redraw(){
 void Main_game::Create_fruit(){
     Fruit buf;
     int buf_num = (rand() % int(Setting.Widght_field/20-1));
+
     buf.x = 20*buf_num;
     buf_num = (rand() % int(Setting.High_field/20-1));
     buf.y = 20*buf_num;
+
     fruits.push_back(buf);
 }
 void Main_game::Create_new_body_part(){
-    qDebug()<<"New_body num[" + QString::number(body.length()) + "]";
+    //qDebug()<<"New_body num[" + QString::number(body.length()) + "]";
 
     Json_Data::Body_part buf(&body[0]);
     buf.body_id =  body[body.length()-1].body_id+1;
-    qDebug()<<buf.body_id;
+    //qDebug()<<buf.body_id;
     buf.bode_direction = body[body.length()-1].bode_direction;
     buf.body_type = body[body.length()-1].body_type;
     buf.x = body[body.length()-1].x;
     buf.y = body[body.length()-1].y;
-    qDebug()<<buf.x;
+    //qDebug()<<buf.x;
     buf.next = &body[body.length()-1];
     buf.down = nullptr;
 
@@ -119,6 +164,7 @@ void Main_game::Create_new_body_part(){
 void Main_game::Check_Eat_fruit(int Head_x, int Head_y,QVector<Fruit> fruts){
     Fruit buf;
     int index = 0;
+    //qDebug()<<"Score = "<<this->score;
     foreach(buf,fruts){
         if(Head_x == buf.x && Head_y == buf.y){
             fruits.remove(index);
@@ -197,7 +243,18 @@ void Main_game::Update_position(){
 
 void Main_game::keyPressEvent(QKeyEvent *event){
     int key=event->key();
+    //qDebug()<<key;
     switch(key){
+        case 16777216:
+            std::cout<<"keyPress ESC"<<std::endl;
+            if(ui->pushButton_2->isVisible()){
+                ui->pushButton_2->setVisible(0);
+                qtimer->start();
+            }else{
+                ui->pushButton_2->setVisible(1);
+                qtimer->stop();
+            }
+        break;
         case 16777235:
             std::cout<<"keyPress up"<<std::endl;
             if(Keyboard_key != 3){
@@ -227,7 +284,6 @@ void Main_game::keyPressEvent(QKeyEvent *event){
 }
 void Draw_body_part(Json_Data::Body_part part,QPainter *painter){
     painter->drawRect(part.x,part.y,20,20);
-    //std::cout<<"draw"<<std::endl;
 }
 void Draw_fruits(QPainter *painter,QVector<Fruit> fruts){
     Fruit buf;
@@ -259,4 +315,27 @@ void Main_game::on_pushButton_clicked()
 {
     this->close();
 }
+void Main_game::on_pushButton_2_clicked()
+{
+    show_Body();
+    Data.Set_Body(body);
+    Data.Set_Settings(&Setting);
+    Data.Set_Fruits(fruits);
+    Data.Set_Score(this->score);
+    Data.Set_FirstDirection(body[0].bode_direction);
+    Data.Write_Json();
+    this->close();
+}
 
+void Main_game::show_Body(){
+    qDebug()<<"Show body :";
+    for(int i = 0;i<body.size();i++){
+         qDebug()<<i<<" body x= "<<body[i].x<<" body y= "<<body[i].y<<" ";
+    }
+
+}
+void Main_game::Set_Score(int s){
+    this->score =s;
+    qtimer->setInterval(Setting.interval - score*1.7);
+    ui->label->setText(QString::number(score));
+}

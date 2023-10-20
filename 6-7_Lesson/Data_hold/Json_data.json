@@ -1,9 +1,299 @@
 {
-    "Settings": {
-        "Dificult": "Normal",
-        "High_field": "200",
-        "Name": "Anonim",
-        "Widght_field": "200",
-        "interval": "300"
-    }
+    "Games": [
+        {
+            "Body_parts": [
+                {
+                    "Part": 0,
+                    "X": 260,
+                    "Y": 560
+                },
+                {
+                    "Part": 1,
+                    "X": 260,
+                    "Y": 540
+                },
+                {
+                    "Part": 2,
+                    "X": 260,
+                    "Y": 520
+                },
+                {
+                    "Part": 3,
+                    "X": 260,
+                    "Y": 500
+                }
+            ],
+            "Direction": 2,
+            "Fruit_coordinates": [
+                {
+                    "X": 520,
+                    "Y": 760
+                }
+            ],
+            "Name": "Anonimus3000",
+            "Score": 5,
+            "Settings": {
+                "Dificult": "Hard",
+                "High_field": 800,
+                "Widght_field": 800,
+                "interval": 300
+            }
+        },
+        {
+            "Body_parts": [
+                {
+                    "Part": 0,
+                    "X": 200,
+                    "Y": 60
+                },
+                {
+                    "Part": 1,
+                    "X": 180,
+                    "Y": 60
+                },
+                {
+                    "Part": 2,
+                    "X": 160,
+                    "Y": 60
+                },
+                {
+                    "Part": 3,
+                    "X": 140,
+                    "Y": 60
+                },
+                {
+                    "Part": 4,
+                    "X": 120,
+                    "Y": 60
+                },
+                {
+                    "Part": 5,
+                    "X": 100,
+                    "Y": 60
+                },
+                {
+                    "Part": 6,
+                    "X": 80,
+                    "Y": 60
+                },
+                {
+                    "Part": 7,
+                    "X": 60,
+                    "Y": 60
+                },
+                {
+                    "Part": 8,
+                    "X": 40,
+                    "Y": 60
+                }
+            ],
+            "Direction": 2,
+            "Fruit_coordinates": [
+                {
+                    "X": 580,
+                    "Y": 220
+                },
+                {
+                    "X": 60,
+                    "Y": 320
+                },
+                {
+                    "X": 280,
+                    "Y": 200
+                }
+            ],
+            "Name": "My",
+            "Score": 9,
+            "Settings": {
+                "Dificult": "Easy",
+                "High_field": 400,
+                "Widght_field": 1000,
+                "interval": 100
+            }
+        },
+        {
+            "Body_parts": [
+                {
+                    "Part": 0,
+                    "X": 560,
+                    "Y": 200
+                },
+                {
+                    "Part": 1,
+                    "X": 560,
+                    "Y": 220
+                },
+                {
+                    "Part": 2,
+                    "X": 560,
+                    "Y": 240
+                },
+                {
+                    "Part": 3,
+                    "X": 560,
+                    "Y": 260
+                },
+                {
+                    "Part": 4,
+                    "X": 560,
+                    "Y": 280
+                },
+                {
+                    "Part": 5,
+                    "X": 560,
+                    "Y": 300
+                },
+                {
+                    "Part": 6,
+                    "X": 560,
+                    "Y": 320
+                },
+                {
+                    "Part": 7,
+                    "X": 560,
+                    "Y": 340
+                },
+                {
+                    "Part": 8,
+                    "X": 560,
+                    "Y": 360
+                },
+                {
+                    "Part": 9,
+                    "X": 560,
+                    "Y": 380
+                },
+                {
+                    "Part": 10,
+                    "X": 560,
+                    "Y": 400
+                },
+                {
+                    "Part": 11,
+                    "X": 560,
+                    "Y": 420
+                },
+                {
+                    "Part": 12,
+                    "X": 560,
+                    "Y": 440
+                },
+                {
+                    "Part": 13,
+                    "X": 580,
+                    "Y": 440
+                },
+                {
+                    "Part": 14,
+                    "X": 600,
+                    "Y": 440
+                },
+                {
+                    "Part": 15,
+                    "X": 620,
+                    "Y": 440
+                }
+            ],
+            "Direction": 3,
+            "Fruit_coordinates": [
+                {
+                    "X": 80,
+                    "Y": 200
+                },
+                {
+                    "X": 320,
+                    "Y": 60
+                },
+                {
+                    "X": 500,
+                    "Y": 180
+                }
+            ],
+            "Name": "Anonim_5",
+            "Score": 15,
+            "Settings": {
+                "Dificult": "Easy",
+                "High_field": 600,
+                "Widght_field": 800,
+                "interval": 100
+            }
+        },
+        {
+            "Body_parts": [
+                {
+                    "Part": 0,
+                    "X": 260,
+                    "Y": 440
+                },
+                {
+                    "Part": 1,
+                    "X": 260,
+                    "Y": 420
+                },
+                {
+                    "Part": 2,
+                    "X": 260,
+                    "Y": 400
+                },
+                {
+                    "Part": 3,
+                    "X": 260,
+                    "Y": 380
+                },
+                {
+                    "Part": 4,
+                    "X": 260,
+                    "Y": 360
+                },
+                {
+                    "Part": 5,
+                    "X": 260,
+                    "Y": 340
+                },
+                {
+                    "Part": 6,
+                    "X": 260,
+                    "Y": 320
+                },
+                {
+                    "Part": 7,
+                    "X": 260,
+                    "Y": 300
+                },
+                {
+                    "Part": 8,
+                    "X": 240,
+                    "Y": 300
+                },
+                {
+                    "Part": 9,
+                    "X": 220,
+                    "Y": 300
+                }
+            ],
+            "Direction": 1,
+            "Fruit_coordinates": [
+                {
+                    "X": 560,
+                    "Y": 0
+                },
+                {
+                    "X": 560,
+                    "Y": 500
+                },
+                {
+                    "X": 260,
+                    "Y": 180
+                }
+            ],
+            "Name": "Dima",
+            "Score": 8,
+            "Settings": {
+                "Dificult": "Easy",
+                "High_field": 600,
+                "Widght_field": 600,
+                "interval": 100
+            }
+        }
+    ]
 }

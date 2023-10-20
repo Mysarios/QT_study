@@ -33,6 +33,7 @@ SOURCES += \
     5_Lesson/cardcreator.cpp \
     5_Lesson/question_5_1.cpp \
     6-7_Lesson/json_data.cpp \
+    6-7_Lesson/load_game.cpp \
     6-7_Lesson/main_game.cpp \
     6-7_Lesson/menu_6_7.cpp \
     6-7_Lesson/settings.cpp \
@@ -67,6 +68,7 @@ HEADERS += \
     5_Lesson/cardcreator.h \
     5_Lesson/question_5_1.h \
     6-7_Lesson/json_data.h \
+    6-7_Lesson/load_game.h \
     6-7_Lesson/main_game.h \
     6-7_Lesson/menu_6_7.h \
     6-7_Lesson/settings.h \
@@ -98,6 +100,7 @@ FORMS += \
     4_Lesson/question_4_3.ui \
     4_Lesson/question_4_4.ui \
     5_Lesson/question_5_1.ui \
+    6-7_Lesson/load_game.ui \
     6-7_Lesson/main_game.ui \
     6-7_Lesson/menu_6_7.ui \
     6-7_Lesson/settings.ui \
