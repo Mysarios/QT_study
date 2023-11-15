@@ -67,7 +67,7 @@ signals:
 public slots:
     void update_part(Body_part);
 private:
-    QString File_data = "F:/My Files/Git Files/QT_study/6-7_Lesson/Data_hold/Json_data.json";
+    QString File_data = "C:/QT_study/6-7_Lesson/Data_hold/Json_data.json";
     Settings_data* Settings;
     QVector<Body_part> Body_parts;
     QVector<Fruit> fruits;

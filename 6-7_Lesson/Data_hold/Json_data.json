@@ -294,6 +294,68 @@
                 "Widght_field": 600,
                 "interval": 100
             }
+        },
+        {
+            "Body_parts": [
+                {
+                    "Part": 0,
+                    "X": 280,
+                    "Y": 120
+                },
+                {
+                    "Part": 1,
+                    "X": 300,
+                    "Y": 120
+                },
+                {
+                    "Part": 2,
+                    "X": 320,
+                    "Y": 120
+                },
+                {
+                    "Part": 3,
+                    "X": 340,
+                    "Y": 120
+                },
+                {
+                    "Part": 4,
+                    "X": 360,
+                    "Y": 120
+                },
+                {
+                    "Part": 5,
+                    "X": 380,
+                    "Y": 120
+                },
+                {
+                    "Part": 6,
+                    "X": 400,
+                    "Y": 120
+                }
+            ],
+            "Direction": 4,
+            "Fruit_coordinates": [
+                {
+                    "X": 540,
+                    "Y": 180
+                },
+                {
+                    "X": 400,
+                    "Y": 460
+                },
+                {
+                    "X": 220,
+                    "Y": 420
+                }
+            ],
+            "Name": "Anonim",
+            "Score": 6,
+            "Settings": {
+                "Dificult": "Easy",
+                "High_field": 600,
+                "Widght_field": 600,
+                "interval": 100
+            }
         }
     ]
 }
