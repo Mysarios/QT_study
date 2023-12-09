@@ -91,6 +91,9 @@ void MainWindow::on_Add_clicked(){
             for(int i =0;i<limits.size();i++){
                limits[i]->show(i+1);
             }
+            for(int i =0;i<criterias.size();i++){
+               criterias[i]->add_limits(*limit);
+            }
         }
     }
 }
@@ -147,5 +150,12 @@ void MainWindow::on_radioButton_clicked()
     ui->O_Eque_Sym_Combobox->setVisible(1);
     ui->O_function_edit->setVisible(1);
     ui->O_function_label->setVisible(1);
+}
+
+
+void MainWindow::on_Get_result_clicked()
+{
+    criterias[0]->show_step();
+    qDebug()<<criterias[0]->Get_key_ValtoBasic();
 }
 

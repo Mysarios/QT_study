@@ -74,7 +74,9 @@ void Limitation::parse_string(QString string){
     }
 
 }
-
+int Limitation::Get_ValByKey(QString key){
+    return Param_val[key];
+}
 QString Limitation::show(){
     QString buf = "";
     QString Result = "";

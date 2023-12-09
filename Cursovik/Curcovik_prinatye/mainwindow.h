@@ -27,6 +27,8 @@ private slots:
 
     void on_radioButton_clicked();
 
+    void on_Get_result_clicked();
+
 private:
     Ui::MainWindow *ui;
     QVector<Criteria*> criterias;

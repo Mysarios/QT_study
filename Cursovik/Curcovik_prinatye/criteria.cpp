@@ -108,6 +108,27 @@ QString Criteria::show(){
     return Result;
 
 }
+QString Criteria::Get_key_ValtoBasic(){
+    QString key;
+    int search_val = 0;
+    QString search_key = "";
+
+    QMap<QString, int>::iterator it;
+    for (it = Param_val.begin(); it != Param_val.end(); ++it) {
+        if(this->min_max == "max"){
+            if(search_val < it.value()){
+                search_val = it.value();
+                search_key = it.key();
+            }
+        }else{
+            if(search_val > it.value()){
+                search_val = it.value();
+                search_key = it.key();
+            }
+        }
+    }
+    return search_key;
+}
 
 void Criteria::show(int index){
     QString buf = "";
@@ -126,4 +147,29 @@ void Criteria::show(int index){
 
     Result +="Criteria_" +QString::number(index) +" "+ buf+ " -> " + min_max;
     qDebug()<<Result;
+}
+void Criteria::show_step(){
+    qDebug()<<"Cont limits ="<<limits_array.size();
+    QVector<QString> keys;
+    QString print_str = "Basic: |";
+    QMap<QString, int>::iterator it;
+    for (it = Param_val.begin(); it != Param_val.end(); ++it) {
+        keys.append(it.key());
+        print_str +=it.key() + " | ";
+    }
+    qDebug()<<print_str;
+
+    print_str = "";
+    for(int i = 0;i<limits_array.size();i++){
+        QString buf;
+        QString print_str = QString::number(i) + " :|";
+        //qDebug()<<limits_array[0].Get_ValByKey("x1");
+        foreach(buf,keys){
+            qDebug()<<buf;
+            print_str +=limits_array[i].Get_ValByKey(buf) + " | ";
+        }
+        qDebug()<<print_str;
+    }
+
+
 }

@@ -12,18 +12,25 @@ class Criteria
 public:
     Criteria();
     Criteria(QString,QString,double,int);
+
     void parse_string(QString);
     void add_limits(Limitation);
     void resolve_optima();
-    QString show();
     void show(int index);
+    void show_step();
+
+
+    QString show();
+    QString Get_key_ValtoBasic();
 private:
     double assignment;
     int validate;
+
     QString min_max;
+    QString nums = "0123456789";
+
     QMap<QString,int> Param_val;
     QVector<Limitation> limits_array;
-    QString nums = "0123456789";
 };
 
 #endif // CRITERIA_H
