@@ -20,11 +20,17 @@ public:
 private slots:
     void on_Add_clicked();
     void on_Clear_clicked();
-    bool check_data_eravn(QString f,QString mm ,QString a,QString v);
+    bool check_data_Crit(QString f,QString mm ,QString a,QString v);
+    bool check_data_Ogran(QString f,QString Value);
+
+    void on_radioButton_2_clicked();
+
+    void on_radioButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     QVector<Criteria*> criterias;
+    QVector<Limitation*> limits;
 
 };
 #endif // MAINWINDOW_H

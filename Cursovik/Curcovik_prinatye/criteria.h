@@ -15,14 +15,15 @@ public:
     void parse_string(QString);
     void add_limits(Limitation);
     void resolve_optima();
-    void show();
+    QString show();
+    void show(int index);
 private:
     double assignment;
     int validate;
     QString min_max;
     QMap<QString,int> Param_val;
     QVector<Limitation> limits_array;
-    QString nums = "123456789";
+    QString nums = "0123456789";
 };
 
 #endif // CRITERIA_H

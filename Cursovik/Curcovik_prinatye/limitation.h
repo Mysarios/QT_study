@@ -11,15 +11,16 @@ class Limitation
 {
 public:
     Limitation();
-    Limitation(QString);
+    Limitation(QString,QString,int);
     void parse_string(QString);
-    void show();
+    QString show();
+    void show(int index);
 
 private:
     QString equal_type;
     int equal_val;
     QMap<QString,int> Param_val;
-    QString nums = "123456789";
+    QString nums = "0123456789";
 };
 
 #endif // LIMITATION_H
