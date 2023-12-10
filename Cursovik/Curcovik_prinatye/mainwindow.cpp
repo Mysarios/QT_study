@@ -92,7 +92,7 @@ void MainWindow::on_Add_clicked(){
                limits[i]->show(i+1);
             }
             for(int i =0;i<criterias.size();i++){
-               criterias[i]->add_limits(*limit);
+               criterias[i]->add_limits(limit);
             }
         }
     }
@@ -155,7 +155,6 @@ void MainWindow::on_radioButton_clicked()
 
 void MainWindow::on_Get_result_clicked()
 {
-    criterias[0]->show_step();
-    qDebug()<<criterias[0]->Get_key_ValtoBasic();
+    criterias[0]->Get_Result();
 }
 

@@ -13,16 +13,29 @@ public:
     Limitation();
     Limitation(QString,QString,int);
 
-    int Get_ValByKey(QString);
+    double Get_ValByKey(QString);
+    double Get_Equal_val();
+    double Get_rezerve(QString key);
+
+    void Add_Basic(int index_limit);
+    void Add_key(QString key);
+    void reverse_limit();
     void parse_string(QString);
     void show(int index);
+    void New_row(double main_val);
+    void New_row_byAnother(Limitation*,QVector<QString>,QString);
+
     QString show();
+    QString get_basicKey();
 
 private:
-    QString equal_type;
     int equal_val;
-    QMap<QString,int> Param_val;
+    QString basic_key;
+
+    QString equal_type;
     QString nums = "0123456789";
+    QMap<QString,double> Param_val;
+
 };
 
 #endif // LIMITATION_H

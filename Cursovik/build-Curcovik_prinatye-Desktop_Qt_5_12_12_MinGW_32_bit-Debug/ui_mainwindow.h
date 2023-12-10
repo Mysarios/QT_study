@@ -154,7 +154,6 @@ public:
         O_Eque_Sym_Combobox = new QComboBox(centralwidget);
         O_Eque_Sym_Combobox->addItem(QString());
         O_Eque_Sym_Combobox->addItem(QString());
-        O_Eque_Sym_Combobox->addItem(QString());
         O_Eque_Sym_Combobox->setObjectName(QString::fromUtf8("O_Eque_Sym_Combobox"));
         O_Eque_Sym_Combobox->setGeometry(QRect(360, 360, 69, 22));
         O_Equal_t_label = new QLabel(centralwidget);
@@ -200,8 +199,8 @@ public:
         C_Validate_label->setText(QApplication::translate("MainWindow", "\320\222\320\260\320\266\320\275\320\276\321\201\321\202\321\214 \320\272\321\200\320\270\321\202\320\265\321\200\320\270\321\217", nullptr));
         C_Min_max_label->setText(QApplication::translate("MainWindow", "Min/Max", nullptr));
         C_Assigment_label->setText(QApplication::translate("MainWindow", "\320\243\321\201\321\202\321\203\320\277\320\272\320\260 \320\262 \320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\260\321\205 0.\320\245\320\245\320\245....", nullptr));
-        C_function_edit->setText(QApplication::translate("MainWindow", "2x1", nullptr));
-        C_Min_Max_edit->setText(QApplication::translate("MainWindow", "Max", nullptr));
+        C_function_edit->setText(QApplication::translate("MainWindow", "5x1+2x2+3x3-4x4", nullptr));
+        C_Min_Max_edit->setText(QApplication::translate("MainWindow", "max", nullptr));
         C_Validate_edit->setText(QApplication::translate("MainWindow", "1", nullptr));
         C_Assigment_edit->setText(QApplication::translate("MainWindow", "0.25", nullptr));
         Add->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
@@ -214,12 +213,11 @@ public:
         radioButton->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\276\320\263\321\200\320\260\320\275\320\270\321\207\320\265\320\275\320\270\320\265", nullptr));
         radioButton_2->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\272\321\200\320\270\321\202\320\265\321\200\320\270\320\271", nullptr));
         O_Equal_val->setText(QApplication::translate("MainWindow", "1", nullptr));
-        O_function_edit->setText(QApplication::translate("MainWindow", "2x1", nullptr));
+        O_function_edit->setText(QApplication::translate("MainWindow", "5x14x4", nullptr));
         O_function_label->setText(QApplication::translate("MainWindow", "\320\243\321\200\320\260\320\262\320\275\320\265\320\275\320\270\320\265 \320\276\320\263\321\200\320\260\320\275\320\270\321\207\320\265\320\275\320\270\320\265", nullptr));
         O_Equal_num_label->setText(QApplication::translate("MainWindow", "\320\240\320\260\320\262\320\265\320\275\321\201\321\202\320\262\320\276", nullptr));
         O_Eque_Sym_Combobox->setItemText(0, QApplication::translate("MainWindow", ">=", nullptr));
         O_Eque_Sym_Combobox->setItemText(1, QApplication::translate("MainWindow", "<=", nullptr));
-        O_Eque_Sym_Combobox->setItemText(2, QApplication::translate("MainWindow", "=", nullptr));
 
         O_Equal_t_label->setText(QApplication::translate("MainWindow", "Equal type", nullptr));
     } // retranslateUi
