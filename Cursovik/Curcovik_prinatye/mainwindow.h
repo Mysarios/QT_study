@@ -32,6 +32,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QVector<Criteria*> criterias;
+    QVector<Criteria*> first_criterias;
     QVector<Limitation*> limits;
 
 };

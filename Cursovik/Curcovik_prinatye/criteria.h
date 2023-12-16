@@ -13,6 +13,9 @@ public:
     Criteria();
     Criteria(QString,QString,double,int);
 
+    double Get_price();
+    double Get_assign();
+
     void parse_string(QString);
     void add_limits(Limitation*);
     void resolve_optima();
@@ -22,12 +25,15 @@ public:
     void Change_keys(QString Basic_key,QString noneBasic_key);
     void Add_key(QString key);
 
+    QString getMinMax();
     QString show();
     QString Get_key_ValtoBasic();
+
+    QMap<QString,double> getParamVal();
 private:
     double assignment;
     int validate;
-    int price;
+    double price;
 
     QString min_max;
     QString nums = "0123456789";

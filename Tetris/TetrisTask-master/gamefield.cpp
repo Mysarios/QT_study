@@ -62,13 +62,33 @@ bool GameField::CheckLine(int indexLine){
 bool GameField::checkMoveSide(int dir){
     bool cantMove = true;
     int size = figurePoints.size();
+    int leftPoint = 100;
+    int rightPoint = -1;
+
+    for(int i =0;i<size;i++){
+        if(figurePoints[i].second >= rightPoint){
+            rightPoint = figurePoints[i].second;
+        }
+        if(figurePoints[i].second <= leftPoint){
+            leftPoint = figurePoints[i].second;
+        }
+    }
+    qDebug()<<leftPoint<<" | "<<rightPoint;
+
     switch(dir){
         case 1:
         for(int i =0;i<size;i++){
             qDebug()<<"figurePoints["<<i<<"] = "<<figurePoints[i].second;
             if(figurePoints[i].second == 0){
                 cantMove = false;
-                return cantMove;
+                //return cantMove;
+            }
+        }
+        if(cantMove){
+            for(int i =0;i<size;i++){
+                if(cells[figurePoints[i].first][figurePoints[i].second-1] == 1 && figurePoints[i].second-1 < leftPoint){
+                    cantMove = false;
+                }
             }
         }
         break;
@@ -77,7 +97,13 @@ bool GameField::checkMoveSide(int dir){
             qDebug()<<"figurePoints["<<i<<"] = "<<figurePoints[i].second;
             if(figurePoints[i].second == rowsNumber-1){
                 cantMove = false;
-                return cantMove;
+            }
+        }
+        if(cantMove){
+            for(int i =0;i<size;i++){
+                if(cells[figurePoints[i].first][figurePoints[i].second+1] == 1 && figurePoints[i].second+1 > rightPoint){
+                    cantMove = false;
+                }
             }
         }
     break;

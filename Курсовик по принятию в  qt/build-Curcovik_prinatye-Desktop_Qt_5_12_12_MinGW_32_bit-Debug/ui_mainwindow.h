@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
@@ -21,7 +20,6 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTableView>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,7 +29,6 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QPushButton *Get_result;
-    QTableView *Result;
     QListWidget *Kriterii;
     QListWidget *Ogran;
     QLabel *C_function_label;
@@ -57,6 +54,7 @@ public:
     QLabel *O_Equal_num_label;
     QComboBox *O_Eque_Sym_Combobox;
     QLabel *O_Equal_t_label;
+    QListWidget *Result;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -70,9 +68,6 @@ public:
         Get_result = new QPushButton(centralwidget);
         Get_result->setObjectName(QString::fromUtf8("Get_result"));
         Get_result->setGeometry(QRect(720, 390, 191, 61));
-        Result = new QTableView(centralwidget);
-        Result->setObjectName(QString::fromUtf8("Result"));
-        Result->setGeometry(QRect(725, 31, 181, 351));
         Kriterii = new QListWidget(centralwidget);
         new QListWidgetItem(Kriterii);
         new QListWidgetItem(Kriterii);
@@ -154,12 +149,17 @@ public:
         O_Eque_Sym_Combobox = new QComboBox(centralwidget);
         O_Eque_Sym_Combobox->addItem(QString());
         O_Eque_Sym_Combobox->addItem(QString());
-        O_Eque_Sym_Combobox->addItem(QString());
         O_Eque_Sym_Combobox->setObjectName(QString::fromUtf8("O_Eque_Sym_Combobox"));
         O_Eque_Sym_Combobox->setGeometry(QRect(360, 360, 69, 22));
         O_Equal_t_label = new QLabel(centralwidget);
         O_Equal_t_label->setObjectName(QString::fromUtf8("O_Equal_t_label"));
         O_Equal_t_label->setGeometry(QRect(360, 330, 51, 31));
+        Result = new QListWidget(centralwidget);
+        QListWidgetItem *__qlistwidgetitem1 = new QListWidgetItem(Result);
+        __qlistwidgetitem1->setForeground(brush);
+        new QListWidgetItem(Result);
+        Result->setObjectName(QString::fromUtf8("Result"));
+        Result->setGeometry(QRect(730, 30, 191, 341));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -200,8 +200,8 @@ public:
         C_Validate_label->setText(QApplication::translate("MainWindow", "\320\222\320\260\320\266\320\275\320\276\321\201\321\202\321\214 \320\272\321\200\320\270\321\202\320\265\321\200\320\270\321\217", nullptr));
         C_Min_max_label->setText(QApplication::translate("MainWindow", "Min/Max", nullptr));
         C_Assigment_label->setText(QApplication::translate("MainWindow", "\320\243\321\201\321\202\321\203\320\277\320\272\320\260 \320\262 \320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\260\321\205 0.\320\245\320\245\320\245....", nullptr));
-        C_function_edit->setText(QApplication::translate("MainWindow", "2x1", nullptr));
-        C_Min_Max_edit->setText(QApplication::translate("MainWindow", "Max", nullptr));
+        C_function_edit->setText(QApplication::translate("MainWindow", "5x1+2x2+3x3-4x4", nullptr));
+        C_Min_Max_edit->setText(QApplication::translate("MainWindow", "max", nullptr));
         C_Validate_edit->setText(QApplication::translate("MainWindow", "1", nullptr));
         C_Assigment_edit->setText(QApplication::translate("MainWindow", "0.25", nullptr));
         Add->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
@@ -214,14 +214,22 @@ public:
         radioButton->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\276\320\263\321\200\320\260\320\275\320\270\321\207\320\265\320\275\320\270\320\265", nullptr));
         radioButton_2->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\272\321\200\320\270\321\202\320\265\321\200\320\270\320\271", nullptr));
         O_Equal_val->setText(QApplication::translate("MainWindow", "1", nullptr));
-        O_function_edit->setText(QApplication::translate("MainWindow", "2x1", nullptr));
+        O_function_edit->setText(QApplication::translate("MainWindow", "5x14x4", nullptr));
         O_function_label->setText(QApplication::translate("MainWindow", "\320\243\321\200\320\260\320\262\320\275\320\265\320\275\320\270\320\265 \320\276\320\263\321\200\320\260\320\275\320\270\321\207\320\265\320\275\320\270\320\265", nullptr));
         O_Equal_num_label->setText(QApplication::translate("MainWindow", "\320\240\320\260\320\262\320\265\320\275\321\201\321\202\320\262\320\276", nullptr));
         O_Eque_Sym_Combobox->setItemText(0, QApplication::translate("MainWindow", ">=", nullptr));
         O_Eque_Sym_Combobox->setItemText(1, QApplication::translate("MainWindow", "<=", nullptr));
-        O_Eque_Sym_Combobox->setItemText(2, QApplication::translate("MainWindow", "=", nullptr));
 
         O_Equal_t_label->setText(QApplication::translate("MainWindow", "Equal type", nullptr));
+
+        const bool __sortingEnabled2 = Result->isSortingEnabled();
+        Result->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem4 = Result->item(0);
+        ___qlistwidgetitem4->setText(QApplication::translate("MainWindow", "Symbol       =     Value", nullptr));
+        QListWidgetItem *___qlistwidgetitem5 = Result->item(1);
+        ___qlistwidgetitem5->setText(QApplication::translate("MainWindow", "_______________________________________________________________________________________________________", nullptr));
+        Result->setSortingEnabled(__sortingEnabled2);
+
     } // retranslateUi
 
 };

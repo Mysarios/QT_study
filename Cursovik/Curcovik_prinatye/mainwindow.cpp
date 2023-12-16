@@ -61,10 +61,12 @@ void MainWindow::on_Add_clicked(){
         QString Combobox_data ="";
         if(Krit_flag != 0){
             Criteria* criter = new Criteria(function,min_max,assigment.toDouble(),validate.toInt());
+            Criteria* criter_clear = new Criteria(function,min_max,assigment.toDouble(),validate.toInt());
             Combobox_data = criter->show();
             ui->Kriterii->addItem(Combobox_data);
 
             criterias.append(criter);
+            first_criterias.append(criter_clear);
             for(int i =0;i<criterias.size();i++){
                qDebug()<<i;
                criterias[i]->show(i+1);
@@ -93,6 +95,7 @@ void MainWindow::on_Add_clicked(){
             }
             for(int i =0;i<criterias.size();i++){
                criterias[i]->add_limits(limit);
+               first_criterias[i]->add_limits(limit);
             }
         }
     }
@@ -155,6 +158,31 @@ void MainWindow::on_radioButton_clicked()
 
 void MainWindow::on_Get_result_clicked()
 {
-    criterias[0]->Get_Result();
+    for(int index = 0;index<criterias.size();index++){
+        first_criterias[index]->Get_Result();
+
+        ui->Result->clear();
+        for(int i =0;i<limits.size();i++){
+            double buf_val = limits[i]->Get_Equal_val();
+            QString buf_str = limits[i]->get_basicKey();
+            ui->Result->addItem(buf_str +"  = "+ QString::number(buf_val));
+            limits[i]->Get_Equal_val();
+        }
+        for(int i =0;i<first_criterias.size();i++){
+            double buf_val = first_criterias[i]->Get_price();
+            QString buf_str = "f" + QString::number(i) + " = ";
+            ui->Result->addItem(buf_str +"  = "+ QString::number(buf_val));
+        }
+
+
+        Limitation *buf = new Limitation();
+        buf->Set_dataFromCriteria(first_criterias[index]->Get_price(),first_criterias[index]->Get_assign(),criterias[index]->getParamVal(),limits.size());
+        limits.append(buf);
+        QString Combobox_data = buf->show();
+        ui->Ogran->addItem(Combobox_data);
+        if(index + 1 <criterias.size()){
+            first_criterias[index+1]->add_limits(buf);
+        }
+   }
 }
 

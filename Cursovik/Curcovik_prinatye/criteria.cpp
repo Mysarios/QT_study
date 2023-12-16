@@ -94,6 +94,15 @@ void Criteria::resolve_optima(){
 
 }
 
+QMap<QString,double> Criteria::getParamVal(){
+    return this->Param_val;
+}
+QString Criteria::getMinMax(){
+    return this->min_max;
+}
+double Criteria::Get_assign(){
+    return this->assignment;
+}
 QString Criteria::show(){
     QString buf = "";
     QString Result = "";
@@ -254,6 +263,7 @@ void Criteria::Get_Result(){
 
         //поиск нового базисного решения
         double main_val = limits_array[index_FromBasic]->Get_ValByKey(basic_key);
+        limits_array[index_FromBasic]->Change_Basic(basic_key);
         qDebug()<<"main val = "<<main_val;
         limits_array[index_FromBasic]->New_row(main_val);
         for(int i = 0;i<limits_array.size();i++){
@@ -274,4 +284,8 @@ void Criteria::Get_Result(){
         this->show_step();
 
     }
+}
+
+double Criteria::Get_price(){
+    return price;
 }

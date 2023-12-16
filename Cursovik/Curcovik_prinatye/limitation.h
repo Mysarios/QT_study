@@ -17,6 +17,8 @@ public:
     double Get_Equal_val();
     double Get_rezerve(QString key);
 
+    void Set_dataFromCriteria(double price,double assign,QMap<QString,double> map,int index_limit);
+    void Change_Basic(QString key);
     void Add_Basic(int index_limit);
     void Add_key(QString key);
     void reverse_limit();

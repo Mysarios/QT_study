@@ -11,6 +11,14 @@ Limitation::Limitation(QString string,QString Equal_type,int value){
     parse_string(string);
 }
 
+void Limitation::Set_dataFromCriteria(double price,double assign,QMap<QString,double> map,int index_limit){
+    this->equal_val = price;
+    this->equal_val = this->equal_val *(1-assign);
+    this->Param_val = map;
+    this->equal_type = ">=";
+    this->show(index_limit);
+}
+
 void Limitation::New_row_byAnother(Limitation * anotherLimit, QVector<QString> keys, QString get_key){
     double new_coef = Param_val[get_key];
 
@@ -130,6 +138,9 @@ void Limitation::New_row(double main_val){
     this->equal_val =double(this->equal_val/main_val);
 }
 
+void Limitation::Change_Basic(QString key){
+    this->basic_key = key;
+}
 double Limitation::Get_ValByKey(QString key){
     double val =Param_val[key];
     return val;
