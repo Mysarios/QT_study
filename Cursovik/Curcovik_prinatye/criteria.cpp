@@ -235,6 +235,7 @@ void Criteria::Get_Result(){
     qDebug()<<"Start None Basic title ="<<NoneBasic_title;
 
     bool end =0;
+
     //Симплекс метод
     while(!end){
         this->show_step();
@@ -248,7 +249,6 @@ void Criteria::Get_Result(){
 
         int index_FromBasic = 0;
         double min_fromBasic = limits_array[0]->Get_rezerve(basic_key);
-        qDebug()<<"1 res ="<<min_fromBasic;
         for(int i = 1;i<limits_array.size();i++){
             double rezerve = limits_array[i]->Get_rezerve(basic_key);
             if(rezerve != 0 && rezerve >0 && min_fromBasic >rezerve){
@@ -263,6 +263,7 @@ void Criteria::Get_Result(){
 
         //поиск нового базисного решения
         double main_val = limits_array[index_FromBasic]->Get_ValByKey(basic_key);
+
         limits_array[index_FromBasic]->Change_Basic(basic_key);
         qDebug()<<"main val = "<<main_val;
         limits_array[index_FromBasic]->New_row(main_val);
@@ -277,10 +278,6 @@ void Criteria::Get_Result(){
             this->Param_val[buf] -= coef_main*limits_array[index_FromBasic]->Get_ValByKey(buf);
         }
         this->price += coef_main*limits_array[index_FromBasic]->Get_Equal_val();
-
-
-
-
         this->show_step();
 
     }

@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
@@ -21,7 +20,6 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTableView>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,7 +29,6 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QPushButton *Get_result;
-    QTableView *Result;
     QListWidget *Kriterii;
     QListWidget *Ogran;
     QLabel *C_function_label;
@@ -57,6 +54,7 @@ public:
     QLabel *O_Equal_num_label;
     QComboBox *O_Eque_Sym_Combobox;
     QLabel *O_Equal_t_label;
+    QListWidget *Result;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -70,9 +68,6 @@ public:
         Get_result = new QPushButton(centralwidget);
         Get_result->setObjectName(QString::fromUtf8("Get_result"));
         Get_result->setGeometry(QRect(720, 390, 191, 61));
-        Result = new QTableView(centralwidget);
-        Result->setObjectName(QString::fromUtf8("Result"));
-        Result->setGeometry(QRect(725, 31, 181, 351));
         Kriterii = new QListWidget(centralwidget);
         new QListWidgetItem(Kriterii);
         new QListWidgetItem(Kriterii);
@@ -159,6 +154,12 @@ public:
         O_Equal_t_label = new QLabel(centralwidget);
         O_Equal_t_label->setObjectName(QString::fromUtf8("O_Equal_t_label"));
         O_Equal_t_label->setGeometry(QRect(360, 330, 51, 31));
+        Result = new QListWidget(centralwidget);
+        QListWidgetItem *__qlistwidgetitem1 = new QListWidgetItem(Result);
+        __qlistwidgetitem1->setForeground(brush);
+        new QListWidgetItem(Result);
+        Result->setObjectName(QString::fromUtf8("Result"));
+        Result->setGeometry(QRect(730, 30, 191, 341));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -220,6 +221,15 @@ public:
         O_Eque_Sym_Combobox->setItemText(1, QApplication::translate("MainWindow", "<=", nullptr));
 
         O_Equal_t_label->setText(QApplication::translate("MainWindow", "Equal type", nullptr));
+
+        const bool __sortingEnabled2 = Result->isSortingEnabled();
+        Result->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem4 = Result->item(0);
+        ___qlistwidgetitem4->setText(QApplication::translate("MainWindow", "Symbol       =     Value", nullptr));
+        QListWidgetItem *___qlistwidgetitem5 = Result->item(1);
+        ___qlistwidgetitem5->setText(QApplication::translate("MainWindow", "_______________________________________________________________________________________________________", nullptr));
+        Result->setSortingEnabled(__sortingEnabled2);
+
     } // retranslateUi
 
 };

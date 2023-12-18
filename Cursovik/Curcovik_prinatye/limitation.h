@@ -31,7 +31,7 @@ public:
     QString get_basicKey();
 
 private:
-    int equal_val;
+    double equal_val;
     QString basic_key;
 
     QString equal_type;
