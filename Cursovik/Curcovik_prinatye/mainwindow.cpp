@@ -158,13 +158,14 @@ void MainWindow::on_radioButton_clicked()
 
 void MainWindow::on_Get_result_clicked()
 {
+    QMap<QString,double> buffer;
     for(int index = 0;index<criterias.size();index++){
         first_criterias[index]->Get_Result();
-
         ui->Result->clear();
         for(int i =0;i<limits.size();i++){
             double buf_val = limits[i]->Get_Equal_val();
             QString buf_str = limits[i]->get_basicKey();
+            buffer[limits[i]->get_basicKey()] = limits[i]->Get_Equal_val();
             ui->Result->addItem(buf_str +"  = "+ QString::number(buf_val));
             limits[i]->Get_Equal_val();
         }
@@ -184,5 +185,22 @@ void MainWindow::on_Get_result_clicked()
             first_criterias[index+1]->add_limits(buf);
         }
    }
+    ui->Result->clear();
+    for(int i =0;i<limits.size();i++){
+        double buf_val = limits[i]->Get_Equal_val();
+        QString buf_str = limits[i]->get_basicKey();
+        ui->Result->addItem(buf_str +"  = "+ QString::number(buf_val));
+        limits[i]->Get_Equal_val();
+    }
+
+    buffer = first_criterias[first_criterias.size()-1]->getParamVal();
+    for(int index = 0;index<criterias.size();index++){
+        double buf_val = first_criterias[index]->Get_price_by_Vals(buffer);
+        QString buf_str = "f" + QString::number(index) + " = ";
+        ui->Result->addItem(buf_str +"  = "+ QString::number(buf_val));
+    }
+
+
+
 }
 

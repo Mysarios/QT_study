@@ -15,6 +15,7 @@ public:
 
     double Get_price();
     double Get_assign();
+    double Get_price_by_Vals(QMap<QString,double>);
 
     void parse_string(QString);
     void add_limits(Limitation*);

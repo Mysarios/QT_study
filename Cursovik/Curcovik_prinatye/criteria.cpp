@@ -25,6 +25,14 @@ void Criteria::Change_keys(QString Basic_key, QString noneBasic_key){
         }
     }
 }
+double Criteria::Get_price_by_Vals(QMap<QString, double> map){
+    double result = 0;
+    QString buf = "";
+    foreach(buf,map){
+        result+= Param_val[buf]*map[buf];
+    }
+    return result;
+}
 void Criteria::parse_string(QString string){
     QString ch;
     int sign = 1;
